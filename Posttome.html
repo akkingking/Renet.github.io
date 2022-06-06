@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>这人写了啥！ </title>
+	<!-- Meta tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Classic Enquiry Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design"
+	/>
+	<script type="application/x-javascript">
+		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+	</script>
+	<!-- Meta tags -->
+	<!--stylesheets-->
+	<link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+	<!--//style sheet end here-->
+	<!-- font-awesome icons-agile -->
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+
+	<!-- //font-awesome icons-agile -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="usuallyUsing.css">
+</head>
+
+<body>
+
+	<h1 class="header-w3ls">
+		欢迎投稿（啾咪~~</h1>
+	<div class="appointment-w3">
+		<form action="#" method="post">
+				<h2 class="wode">填写一下个人信息吧！</h2>
+                  <div class="line-w3ls"> </div>
+				<div class="login-w3ls">
+					<div class="icons-agile">
+						<span class="fa fa-user" aria-hidden="true"></span>
+						<input type="text" name="name" placeholder="昵称" required="">
+
+						<div class="clear"></div>
+					</div>
+					<div class="icons-agile ">
+						<span class="fa fa-envelope" aria-hidden="true"></span>
+						<input type="email" name="email" placeholder="邮箱" required="">
+
+						<div class="clear"></div>
+					</div>
+					<div class="icons-agile">
+						<span class="fa fa-sort-desc" aria-hidden="true"></span>
+						<select class="form-control buttom">
+												<option value="">闲人</option>
+													<option value="category2">身份1</option>
+													<option value="category1">闲人2</option>
+													<option value="category3">猫娘</option>
+									
+												</select>
+
+					</div>
+					<div class="clear"></div>
+
+					
+					<div class="file-upload">
+  <div class="file-select">
+    <div class="file-select-button" id="fileName">选择文件</div>
+    <div class="file-select-name" id="noFile">没有文件被选择哦~</div> 
+    <input type="file" name="chooseFile" id="chooseFile">
+  </div>
+</div>
+					<div class="btnn">
+						<input type="submit" value="提交">
+					</div>
+				</div>
+		</form>
+	</div>
+
+	<div class="copy">
+		<p>感谢您的投稿，欢迎再次光临~~~~<br><a href="index.html" target="_blank">——INKY</a></p>
+	</div>
+	<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
+<script>
+	$('#chooseFile').bind('change', function () {
+  var filename = $("#chooseFile").val();
+  if (/^\s*$/.test(filename)) {
+    $(".file-upload").removeClass('active');
+    $("#noFile").text("No file chosen..."); 
+  }
+  else {
+    $(".file-upload").addClass('active');
+    $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+  }
+});
+</script>
+</body>
+
+</html>
