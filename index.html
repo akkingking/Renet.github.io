@@ -1,233 +1,345 @@
 <!doctype html>
-<html>
+<html class="no-js" lang="zxx">
+
 <head>
-<meta charset="utf-8">
-<title>INKY的博客</title>
-<meta name="keywords" content="简单实用,响应式,个人博客,HTML5网站模板" />
-<meta name="description" content="简单实用响应式个人博客HTML5网站模板下载。本套个人博客模板设计简洁大气，自适应手机移动端，简单易用。下载文件包含首页、多个列表页、导航页、关于我、往期文章等8张html网页模板，详见在线演示。使用最新HTML5+CSS3技术，采用响应式布局设计，自适应手机移动端，用户体验友好的一套个人博客网站模板。" /> 
-<meta name="author" content="php中文网(www.php.cn)" />
-<meta name="copyright" content="php中文网(www.php.cn)" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="css/base.css" rel="stylesheet">
-<link href="css/m.css" rel="stylesheet">
-<script src="js/jquery-1.8.3.min.js" ></script>
-<script src="js/comm.js"></script>
-<!--[if lt IE 9]>
-<script src="js/modernizr.js"></script>
-<![endif]-->
+
+    <!--========= Required meta tags =========-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--====== Title ======-->
+    <title>INKYLIKE PAGE</title>
+
+    <!--====== CSS Here ======-->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/lightcase.css">
+    <link rel="stylesheet" href="static/css/meanmenu.css">
+    <link rel="stylesheet" href="static/css/nice-select.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/animate.min.css">
+    <link rel="stylesheet" href="static/css/jquery-ui.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    <style>
+        a{text-decoration:none;} 
+    </style>
+
 </head>
-<body>
-<!--top begin-->
-<header id="header">
-  <div class="navbox">
-    <h2 id="mnavh"><span class="navicon"></span></h2>
-    <div class="logo"><a href="index.html">INKY的个人博客</a></div>
-    <nav>
-      <ul id="starlist">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="list.html">个人博客</a></li>
-        <li class="menu"><a href="list2.html">二刺猿ZONE</a>
-          <ul class="sub">
-            <li><a href="#">新番简谈</a></li>
-            <li><a href="#">补番感悟</a></li>
-            <li><a href="#">黄油浅聊</a></li>
-            <li><a href="./wenku/zhengwenku.html">小说随笔</a></li>
-          </ul>
-        <li><a href="about.html">学习生活</a></li>
-      </ul>
-    </nav>
+
+<body class="dark-bg">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- preloader  -->
+    <div id="preloader">
+        <div id="ctn-preloader" class="ctn-preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
+                <div class="txt-loading">
+                    <span data-text-preloader="I" class="letters-loading">
+                        I
+                    </span>
+                    <span data-text-preloader="N" class="letters-loading">
+                        N
+                    </span>
+                    <span data-text-preloader="K" class="letters-loading">
+                        K
+                    </span>
+                    <span data-text-preloader="Y" class="letters-loading">
+                        Y
+                    </span>
+                    <span data-text-preloader="L" class="letters-loading">
+                        L
+                    </span>
+                    <span data-text-preloader="I" class="letters-loading">
+                        I
+                    </span>
+                    <span data-text-preloader="K" class="letters-loading">
+                        K
+                    </span>
+                    <span data-text-preloader="E" class="letters-loading">
+                        E
+                    </span>
+                </div>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- header start -->
     
-  </div>
-</header>
-<div class="searchbox">
-  <div class="search">
 
-  </div>
-  <div class="searchclose"></div>
-</div>
-<!--top end-->
-<article> 
-  <!--lbox begin-->
-  <div class="lbox"> 
-    <!--banbox begin-->
-    <div class="banbox">
-      <div class="banner">
-        <div id="banner" class="fader">
-          <li class="slide" ><a href="/" target="_blank"><img src="images/p1.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="images/p2.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="images/p3.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="images/p4.jpg"></a></li>
-          <div class="fader_controls">
-            <div class="page prev" data-target="prev"></div>
-            <div class="page next" data-target="next"></div>
-            <ul class="pager_list">
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--banbox end--> 
-    <!--headline begin-->
-    <div class="headline">
-      <ul>
-        <li><a href="./blog/nine-9/index.html" title="9nine系列游玩顺序是什么?"><img src="images/q1.jpg" alt="为什么说10月24日是程序员的节日？"><span>9nine系列游玩顺序是什么?剧情怎么样？</span></a></li>
-        <li><a href="./blog/mangai/index.html" ><img src="images/q2.jpg" ><span>galgame改编的动画有哪些？浅谈gal改动画</span></a></li>
-      </ul>
-    </div>
-    <!--headline end-->
-    <div class="clearblank"></div>
-    <div class="tab_box whitebg">
-      <div class="tab_buttons">
-        <ul>
-          <li class="newscurrent">个人博客</li>
-          <li>YY小说</li>
-          <li>番剧轻谈</li>
-          <li>黄油浅聊</li>
-          <li>学习生活</li>
-        </ul>
-      </div>
-      <div class="newstab">
-        <div class="newsitem">
-          <div class="newspic">
-            <ul>
-              <li><a href="info.html"><img src="images/e1.jpg"><span></span></a></li>
-              <li><a href="info.html"><img src="images/e2.jpg"><span></span></a></li>
-            </ul>
-          </div>
-          <ul class="newslist">
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-          </ul>
-        </div>
-        <div class="newsitem">
-          <div class="newspic">
-            <ul>
-              <li><a href="info.html"><img src="images/e1.jpg"><span></span></a></li>
-              <li><a href="info.html"><img src="images/e2.jpg"><span></span></a></li>
-            </ul>
-          </div>
-          <ul class="newslist">
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-          </ul>
-        </div>
-        <div class="newsitem">
-          <div class="newspic">
-            <ul>
-              <li><a href="info.html"><img src="images/e1.jpg"><span></span></a></li>
-              <li><a href="info.html"><img src="images/e2.jpg"><span></span></a></li>
-            </ul>
-          </div>
-          <ul class="newslist">
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-          </ul>
-        </div>
-        <div class="newsitem" >
-          <div class="newspic">
-            <ul>
-              <li><a href="info.html"><img src="images/e1.jpg"><span></span></a></li>
-              <li><a href="info.html"><img src="images/e2.jpg"><span></span></a></li>
-            </ul>
-          </div>
-          <ul class="newslist">
-            <li><i></i><a href="./blog/nine-9/index.html"></a>
-              <p>9nine系列游玩顺序是什么?剧情怎么样？</p>
-            </li>
-            <li><i></i><a href="./blog/mangai/index.html"></a>
-              <p>galgame改编的动画有哪些？浅谈gal改动画</p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-            <li><i></i><a href="info.html"></a>
-              <p></p>
-            </li>
-          </ul>
-        </div>
-       
-      </div>
-    </div>
-    <!--tab_box end-->
-    <div class="zhuanti whitebg">
-      <h2 class="htitle">古怪日志</h2>
-      <ul>
-        <li> <i class="ztpic"><a href="/" target="_blank"><img src="images/a1.jpg"></a></i> <b>《君彼女》的通关感</b><span>真实与虚幻？你的选择是？</span><a href="" target="_blank" class="readmore">文章阅读</a> </li>
-        <li> <i class="ztpic"><a href="/" target="_blank"><img src="images/a2.jpg"></a></i> <b>《美少女万华镜》的1~4通关感</b><span>总的来说就是要让吉儿歇着点。</span><a href="" target="_blank" class="readmore">文章阅读</a> </li>
-        <li> <i class="ztpic"><a href="/" target="_blank"><img src="images/a3.jpg"></a></i> <b>狗屎E网通</b><span>不看不知道，一看吓一跳</span><a href="" target="_blank" class="readmore">文章阅读</a> </li>
-
-      </ul>
-    </div>
- 
-    <!--bloglist end--> 
-  </div>
-  <div class="rbox">
-    <div class="card">
-      <h2>我的名片</h2>
-      <p>网名：INKY`Eilier</p>
-      <p>现居：浙江-温州</p>
-      <p>邮箱：3359832471@qq.com</p>
-      <p>网址：https://akkingking.github.io</p>
-      <ul class="linkmore">
-        <li><a href="https://mail.qq.com/" target="_blank" class="iconfont icon-youxiang" title="我的邮箱"></a></li>
-        <li><a href="https://qzone.qq.com/" target="_blank" class="iconfont icon---" title="QQ联系我"></a></li>
-        <li id="weixin"><a href="#" target="_blank" class="iconfont icon-weixin" title="关注我的微信"></a><i><img src="images/wx.jpg"></i></li>
-      </ul>
-    </div>
-    <div class="whitebg notice">
-      <h2 class="htitle">网站公告</h2>
-      <ul>
-        <li><a href="info.html">1</a></li>
-        <li><a href="info.html">1</a></li>
-        <li><a href="info.html">1</a></li>
-        <li><a href="info.html">1</a></li>
-      </ul>
-    </div>
    
-  </div>
-</article>
 
+
+
+
+
+    <main>
+        <!-- hero area start -->
+        <section class="hero__area hero__area--3 bg_img" data-overlay="dark" data-opacity="4" data-background="assets/images/hero/hero-img-3-1.jpg">
+            <div class="container-fluid custom-width custom-width__2">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-7 col-md-8 align-self-center">
+                         <div class="hero__content hero__content--3 position-relative">
+                             <h1 class="title mb-20">Crown of sin <br>
+                                for you </h1>
+                                <p>Once we dreamt that we were strangers.
+
+                                    We wake up to find that we were dear to each other. </p>
+                                <div class="btns mt-45 d-flex align-items-center justify-content-start">
+                                    <a href="./wenku/zhengwenku.html" class="site-btn">READ MORE</a>
+                                </div>
+                         </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-5 col-md-4">
+                        <div class="vide-wrapper">
+                            <a href="./static/VE/vedio.mp4" data-rel="lightcase:myCollection" data-animation="fadeInLeft" class="video-btn video-btn__2 video-btn__2--white d-flex align-items-center"><i class="fas fa-play"></i><span class="border-effect">play video</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- hero area end -->
+
+        <!-- feature slider start -->
+        <div class="feature__area feature__area--3 dark-bg pt-120" data-overlay="dark" data-opacity="9">
+            <div class="container-fluid custom-width custom-width__2">
+                <div class="row mt-none-30">
+                    <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
+                        <div class="feature__item feature__item--3 bg_img" data-background="assets/images/products/f-1.jpg">
+                            <div class="shape"><img src="static/picture/f-shape-1.png" alt=""></div>
+                            <div class="content">
+                                <span class="count">01</span>
+                                <a href="./wenku/zhengwenku.html"><h2 class="title mb-10">《Loneliness of stupid world》</h2></a>
+                                <p>蒸汽与光雾中闪烁的神秘，命运之潮的汹涌究竟如何席卷殷的选择？</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
+                        <div class="feature__item feature__item--3 bg_img" data-background="assets/images/products/f-2.jpg">
+                            <div class="shape"><img src="static/picture/f-shape-1.png" alt=""></div>
+                            <div class="content">
+                                <span class="count">02</span>
+                                <h2 class="title mb-10">Miscellaneous articles</h2>
+                                <p>Life - poetry and distance <br>生活—诗和远方?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- feature slider end -->
+
+        <!-- history area start -->
+        <section class="about__area about__area--3 dark-bg position-relative pt-120">
+            <div class="container-fluid custom-width custom-width__2">
+                <div class="row g-0">
+                    <div class="col-xl-6 d-flex">
+                        <div class="about__left about__left--3 d-flex align-items-stretch">
+                            <img src="static/picture/about-bg-3-1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="about__right about__history">
+                            <div class="section-heading">
+                                <span class="sub-title">my history</span>
+                                <h2 class="title mb-25">creat the story of my own</h2>
+                                <p>Streunende Sommervögel kommen an mein Fenster, um zu singen und wegzufliegen.Die gelben Blätter des Herbstes, die nichts zu singen haben, flattern und fallen dort mit einem Seufzer.</p>
+                                <p>Stray birds of summer come to my window to sing and fly away.
+
+                                    And yellow leaves of autumn, which have no songs, flutter and fall there with a sign. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- history area end -->
+
+        <!-- about area start -->
+        <section class="about__area about__area--4 dark-bg position-relative pt-120">
+            <div class="container">
+                <div class="row mm-reverse">
+                    <div class="col-xl-6">
+                        <div class="about__left about__left--4">
+                            <div class="section-heading">
+                                <h2 class="title mb-25"></h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 offset-xl-2">
+                        <div class="big-product-wrapper position-relative">
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about area end -->
+
+       
+
+       
+        <div class="product-popup product-popup-1">
+          <!--    <div class="view-background">
+                <div class="row">
+                    <div class="col-md-4 align-self-center">
+                        <div class="quickview d-flex align-items-center justify-content-center">
+                            <div class="quickview__thumb">
+                                <img src="static/picture/pp-1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="viewcontent">
+                            <div class="viewcontent__header">
+                                <h2>VICARAGUA COFFEE BEANS</h2>
+                                <a class="view_close product-p-close" href="javascript:void(0)"><i class="fal fa-times"></i></a>
+                            </div>
+                            <div class="viewcontent__rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fal fa-star"></i>
+                            </div>
+                            <div class="viewcontent__price">
+                                <h4><span>$</span>99.00</h4>
+                            </div>
+                            <div class="viewcontent__stock">
+                                <h4>Available :<span> In stock</span></h4>
+                            </div>
+                            <div class="viewcontent__details">
+                                <p>Anlor sit amet, consectetur adipiscing elit. Fusce condimentum est lacus, non pretium risus lacinia vel. Fusce eget turpis orci.</p>
+                            </div>
+                            <div class="viewcontent__action">
+                                <span>Qty</span>
+                                <input type="number" placeholder="1">
+                                <a class="site-btn" href="#">add to cart</a>
+                            </div>
+                            <div class="viewcontent__footer">
+                                <ul class="list-unstyled">
+                                    <li>Category:</li>
+                                    <li>SKU:</li>
+                                    <li>Brand:</li>
+                                </ul>
+                                <ul class="list-unstyled">
+                                    <li>Watches</li>
+                                    <li>2584-MK63</li>
+                                    <li>Brenda</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -- product popup end -->
+
+        <!--     ***************************************角色介绍板块************************************
+        <div class="product-popup popup-coffe-mechine">
+            <div class="view-background">
+                <div class="row">
+                    <div class="col-md-4 align-self-center">
+                        <div class="quickview d-flex align-items-center justify-content-center">
+                            <div class="quickview__thumb">
+                                <img src="static/picture/product-big.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="viewcontent">
+                            <div class="viewcontent__header">
+                                <h2>VICARAGUA COFFEE BEANS</h2>
+                                <a class="view_close product-p-close" href="javascript:void(0)"><i class="fal fa-times"></i></a>
+                            </div>
+                            <div class="viewcontent__rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fal fa-star"></i>
+                            </div>
+                            <div class="viewcontent__price">
+                                <h4><span>$</span>99.00</h4>
+                            </div>
+                            <div class="viewcontent__stock">
+                                <h4>Available :<span> In stock</span></h4>
+                            </div>
+                            <div class="viewcontent__details">
+                                <p>Anlor sit amet, consectetur adipiscing elit. Fusce condimentum est lacus, non pretium risus lacinia vel. Fusce eget turpis orci.</p>
+                            </div>
+                            <div class="viewcontent__action">
+                                <span>Qty</span>
+                                <input type="number" placeholder="1">
+                                <a class="site-btn" href="#">add to cart</a>
+                            </div>
+                            <div class="viewcontent__footer">
+                                <ul class="list-unstyled">
+                                    <li>Category:</li>
+                                    <li>SKU:</li>
+                                    <li>Brand:</li>
+                                </ul>
+                                <ul class="list-unstyled">
+                                    <li>Watches</li>
+                                    <li>2584-MK63</li>
+                                    <li>Brenda</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- reservation area start -->
+        
+        <!-- reservation area end -->
+    </main>
+
+    
+
+    <!--========= JS Here =========-->
+    <script src="static/js/jquery-2.2.4.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/jquery.meanmenu.min.js"></script>
+    <script src="static/js/jquery.nice-select.min.js"></script>
+    <script src="static/js/lightcase.js"></script>
+    <script src="static/js/owl.carousel.min.js"></script>
+    <script src="static/js/tilt.jquery.min.js"></script>
+    <script src="static/js/wow.min.js"></script>
+    <script src="static/js/jquery.easing.min.js"></script>
+    <script src="static/js/scrollwatch.js"></script>
+    <script src="static/js/sticky-header.js"></script>
+    <script src="static/js/waypoint.js"></script>
+    <script src="static/js/imagesloaded.pkgd.min.js"></script>
+    <script src="static/js/isotope.pkgd.min.js"></script>
+    <script src="https://ditu.google.cn/maps/api/js?key=AIzaSyDfpGBFn5yRPvJrvAKoGIdj1O1aO9QisgQ"></script>
+    <script src="static/js/jquery-ui-slider-range.js"></script>
+    <script src="static/js/main.js"></script>
 </body>
+
 </html>
