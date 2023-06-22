@@ -1,332 +1,426 @@
-(function ($) {
-    'use strict';
+/*===================================================
+Project:   Forsa - Landingpage
+Auther: Mohamed Amin [AminThemes]
+Auther-URI:https://www.templatemonster.com/authors/aminthemes/
+Version:    1.0
+Created:   21 Dec 2022
+Template Description:    multipurpose HTML5 landing pages Templates
+====================================================*/
 
-    /*------------- preloader js --------------*/
-	function loader() {
-		$(window).on('load', function () {
-			$('#ctn-preloader').addClass('loaded');
-			$("#loading").fadeOut(500);
-			// Una vez haya terminado el preloader aparezca el scroll
+//GLOBAL VARIBALES
+var //selector vars
+  main_window = $(window),
+  root = $("html, body"),
+  bdyOnePage = $("body.landing-page-demo "),
+  pageHeader = $("#page-header"),
+  navMain = $("nav.main-navbar"),
+  navMenuWraper = $(".navbar-menu-wraper"),
+  hasSubMenu = $(".has-sub-menu"),
+  onePage_navLink = $(
+    ".landing-page-demo .main-navbar .nav-link, .landing-page-demo .goto-link"
+  ),
+  pageHero = $("#page-hero"),
+  backToTopButton = $(".back-to-top"),
+  heroVegasSlider = $(".hero-vegas-slider"),
+  heroSwiperSlider = ".hero-swiper-slider .swiper-container",
+  tabLink = $(".ma-tabs .tabs-links .tab-link"),
+  togglerLink = $(".ma-tabs .toggler-links .toggler"),
+  portfolioGroup = $(".portfolio .portfolio-group"),
+  // Measurements vars
+  navMainHeight = navMain.innerHeight(),
+  pageHeroHeight = pageHero.innerHeight(),
+  //class Names Strings vars
 
-			if ($('#ctn-preloader').hasClass('loaded')) {
-				// Es para que una vez que se haya ido el preloader se elimine toda la seccion preloader
-				$('#preloader').delay(900).queue(function () {
-					$(this).remove();
-				});
-			}
-		});
-	}
-	loader();
+  hdrStandOut = "header-stand-out",
+  inputHasText = "has-text",
+  // condetionals vars
+  counterShowsUp = false;
 
-	$(window).on("load", function () {
-		background();
-	});
+$(function () {
+  "use strict";
+  /*-----------------  START GENERAL FUNCTIONS  -----------------*/
 
-	// scroll to top js
-	var scroll = $(".go-top");
-	scroll.on('click', function() {
-		$('html , body').animate({
-			scrollTop: 0
-		}, 300);
-	});
+  // function to fire the conter plugin
+  function fireCounter() {
+    if ($(".stats-counter").length) {
+      if (jQuery().countTo && counterShowsUp === false) {
+        var pos = $(".stats-counter").offset().top;
 
-    // background image js
-	function background() {
-			var img=$('.bg_img');
-			img.css('background-image', function () {
-			var bg = ('url(' + $(this).data('background') + ')');
-			return bg;
-		});
-	}
+        if (main_window.scrollTop() + main_window.innerHeight() - 50 >= pos) {
+          $(".counter").countTo();
+          counterShowsUp = true;
+        }
+      }
+    }
+  }
 
-	// active mobile-menu
-	jQuery('#mobile-menu').meanmenu({
-		meanScreenWidth: '991',
-		meanMenuContainer: '.mobile-menu'
-	});
+  /*-----------------  END GENERAL FUNCTIONS  -----------------*/
 
-	// toggle search bar
-	$('.search .search__trigger .open').click(function () {
-		$(".search .search__trigger .open").hide();
-		$(".search .search__trigger .close").show();
-		$('.search__form').addClass('active');
-	});
-	$('.search .search__trigger .close').click(function () {
-		$(".search .search__trigger .open").show();
-		$(".search .search__trigger .close").hide();
-		$('.search__form').removeClass('active');
-	});
+  /*----------------- Start Calling global function -----------------*/
 
-	// Side menu info
-	$(".hamburger-trigger").on("click", function (e) {
-		e.preventDefault();
-		$(".side-info-wrapper").toggleClass("show");
-		$("body").addClass("on-side");
-		$('.overlay').addClass('active');
-		$(this).addClass('active');
-	});
+  /*this functions must fires on the page ready to load*/
 
-	$(".side-info__close > a").on("click", function (e) {
-		e.preventDefault();
-		$(".side-info-wrapper").removeClass("show");
-		$("body").removeClass("on-side");
-		$('.overlay').removeClass('active');
-		$('.hamburger-trigger').removeClass('active');
-	});
+  // to fire the counter when its section appear on screen
+  fireCounter();
 
-	$('.overlay').on('click', function () {
-		$(this).removeClass('active');
-		$(".side-info-wrapper").removeClass("show");
-		$("body").removeClass("on-side");
-		$('.hamburger-trigger').removeClass('active');
-	});
+  /*----------------- End Calling global function -----------------*/
 
-	// cart info
-	$(".cart-trigger").on("click", function (e) {
-		e.preventDefault();
-		$(".cart-bar-wrapper").toggleClass("show");
-		$("body").addClass("on-side");
-		$('.overlay').addClass('active');
-		$(this).addClass('active');
-	});
+  // to remove class from navbar if the page refreshed and the scrolltop of the window > 50px
+  if (main_window.scrollTop() > 100) {
+    $(pageHeader).toggleClass(hdrStandOut);
+    $(backToTopButton).toggleClass("show");
+  }
 
-	$(".cart-bar__close > a").on("click", function (e) {
-		e.preventDefault();
-		$(".cart-bar-wrapper").removeClass("show");
-		$("body").removeClass("on-side");
-		$('.overlay').removeClass('active');
-		$('.cart-trigger').removeClass('active');
-	});
+  /* ----------------- End page loading Actions * ----------------- */
 
-	$('.overlay').on('click', function () {
-		$(this).removeClass('active');
-		$(".cart-bar-wrapper").removeClass("show");
-		$("body").removeClass("on-side");
-		$('.cart-trigger').removeClass('active');
-	});
+  /* ----------------- Start onClick Actions * ----------------- */
 
-	// feature slider
-	var owl = $('.feature__slider');
-	owl.owlCarousel({
-		loop: true,
-		margin: 30,
-		loop: true,
-		slideSpeed: 3000,
-		nav: true,
-		dots: false,
-		navText: ["<i class='fa fa-long-arrow-left'></i>", "<i class='fa fa-long-arrow-right'></i>"],
-		responsiveClass:true,
-		responsive: {
-			0: {
-				items: 1,
-				margin: 0
-			},
-			768: {
-				items: 3
-			},
-			992: {
-				items: 3
-			},
-			1440: {
-				items: 4
-			}
-		}
-	});
+  //  Start Smooth Scrolling To page Sections
+  $(onePage_navLink).on("click", function (e) {
+    var link = $(this).attr("href");
+    var currentMainNavHeight = navMain.innerHeight();
 
-	// testemonial slider
-	var owl = $('.testimonial__active');
-	owl.owlCarousel({
-		items: 1,
-		loop: true,
-		margin: 30,
-		loop: true,
-		slideSpeed: 3000,
-		nav: true,
-		dots: false,
-		navText: ["<i class='fa fa-long-arrow-left'></i>", "<i class='fa fa-long-arrow-right'></i>"],
-		responsiveClass:true,
-	});
+    if (link.charAt(0) === "#") {
+      e.preventDefault();
+      var target = this.hash;
+      $(root).animate(
+        {
+          scrollTop: $(target).offset().top - currentMainNavHeight + 1,
+        },
+        500
+      );
+    }
+    if (!$(this).parent(".nav-item").hasClass("has-sub-menu")) {
+      // to close the menu after going to crossponding section
+      if ($(".navbar-menu-wraper").hasClass("show-menu")) {
+        $(".navbar-menu-wraper").removeClass("show-menu");
+      }
+      // to change the menu toggler buttn icon
+      if ($(".menu-toggler-btn").hasClass("close-menu-btn")) {
+        $(".menu-toggler-btn").removeClass("close-menu-btn");
+      }
+    }
+  });
 
-	//  product popup
-	$('.view').on('click',function() {
-		$('.overlay, .product-popup-1').addClass('show-popup');
-	});
+  //End Smooth Scrolling To page Sections
 
-	$('.product-highlight__trigger').on('click',function() {
-		$('.overlay, .popup-coffe-mechine').addClass('show-popup');
-	});
+  $(".navbar-nav").on("click", function (e) {
+    e.stopPropagation();
+  });
 
-	$('.overlay,.product-p-close').on('click',function() {
-		$('.overlay, .popup-coffe-mechine, .product-popup').removeClass('show-popup');
-	});
+  //  open and close menu btn
+  $(".menu-toggler-btn, .navbar-menu-wraper ").on("click", function () {
+    $(".menu-toggler-btn").toggleClass("close-menu-btn");
+    navMenuWraper.toggleClass("show-menu");
 
-	// Activate lightcase
-	$('a[data-rel^=lightcase]').lightcase();
+    //  add/remove  .header-stand-out  class to .main-navbar when menu-toogler-clicked
 
-	// isotop active
-	$('.popular-menu__grid').imagesLoaded(function () {
-		// init Isotope
-		var $grid = $('.popular-menu__grid').isotope({
-			itemSelector: '.grid-item',
-			percentPosition: true,
-			masonry: {
-				columnWidth: '.grid-sizer'
-			}
-		});
+    //  if the menu is opened
+    if ($(".show-menu").length) {
+      // add .header-stand-out class to .main-nav
+      if (!pageHeader.hasClass(hdrStandOut))
+        $(pageHeader).addClass(hdrStandOut);
+    } else {
+      // remove .header-stand-out class to .main-nav in case the window scrolltop less than 50px
+      if (
+        pageHeader.hasClass(hdrStandOut) &&
+        main_window.scrollTop() < 50 &&
+        main_window.innerWidth > "991px"
+      )
+        $(pageHeader).removeClass(hdrStandOut);
+    }
+  });
 
-		// filter items on button click
-		$('.popular-menu__filter').on('click', 'button', function () {
-			var filterValue = $(this).attr('data-filter');
-			$grid.isotope({ filter: filterValue });
-		});
+  //showing navbar sub-menus
+  hasSubMenu.on("click", function (e) {
+    e.stopPropagation();
+    if (!(main_window.innerWidth() > 1199)) {
+      $(this).children(".sub-menu").slideToggle();
+    }
+  });
 
-	});
+  // Start Smooth Scrolling To Window Top When Clicking on Back To Top Button
+  $(backToTopButton).on("click", function () {
+    root.animate(
+      {
+        scrollTop: 0,
+      },
+      1000
+    );
+  });
+  // End Smooth Scrolling To Window Top When Clicking on Back To Top Button
 
-	// isotop masonary active
-	$('.popular-menu__masonary').imagesLoaded(function () {
-		// init Isotope
-		var $grid = $('.popular-menu__masonary').isotope({
-			itemSelector: '.popular-menu__item',
-			percentPosition: true,
-			masonry: {
-				columnWidth: '.popular-menu__item',
-				horizontalOrder: true,
-			}
-		});
+  /* ----------------- End onClick Actions ----------------- */
 
-		// filter items on button click
-		$('.popular-menu__filter').on('click', 'button', function () {
-			var filterValue = $(this).attr('data-filter');
-			$grid.isotope({ filter: filterValue });
-		});
+  /* ----------------- Start onScroll Actions ----------------- */
 
-	});
+  main_window.on("scroll", function () {
+    if ($(this).scrollTop() > 50) {
+      //show back to top btn
+      backToTopButton.addClass("show");
+    } else {
+      //hide back to top btn
+      backToTopButton.removeClass("show");
+    }
 
-	//for menu active class
-	$('.popular-menu__filter button').on('click', function (event) {
-		$(this).siblings('.active').removeClass('active');
-		$(this).addClass('active');
-		event.preventDefault();
-	});
+    // to add/remove a class that makes navbar stands out
+    // by changing its colors to the opposit colors
+    if ($(this).innerWidth() > 991) {
+      if ($(this).scrollTop() > 50) {
+        if (!$(pageHeader).hasClass(hdrStandOut))
+          $(pageHeader).addClass(hdrStandOut);
+      } else {
+        if ($(pageHeader).hasClass(hdrStandOut))
+          $(pageHeader).removeClass(hdrStandOut);
+      }
+    } else {
+      // on screens smaller than 992px always add header-standout class
+      if (!$(pageHeader).hasClass(hdrStandOut)) {
+        $(pageHeader).addClass(hdrStandOut);
+      }
+    }
 
-	$('.pp__item').on('mouseenter', function () {
-		$(this).addClass('active').parent().siblings().find('.pp__item').removeClass('active');
-	});
+    // to make sure the counter will start counting whit its section apear on the screen
+    fireCounter();
+  });
 
-	// range slider activation
-	$("#slider-range").slider({
-		range: true,
-		min: 0,
-		max: 10000,
-		values: [0, 10000],
-		slide: function (event, ui) {
-			$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-		}
-	});
+  /* ----------------- End onScroll Actions ----------------- */
+  /* --------------------------
+    Start Vendors plugins options  
+    ----------------------------*/
 
-	$("#amount").val("$" + $("#slider-range").slider("values", 0) +
-	" - $" + $("#slider-range").slider("values", 1));
+  /* Start  wow.js  Options */
 
-	// map active
-	function basicmap() {
-		// Basic options for a simple Google Map
-		// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-		var mapOptions = {
-			// How zoomed in you want the map to start at (always required)
-			zoom: 15,
-			scrollwheel: false,
-			center: new google.maps.LatLng(40.74393298737726, -73.967833),
-			styles: [{
-				"stylers": [{
-					"color": "#13131A"
-				}]
-			}, {
-				"featureType": "water",
-				"elementType": "labels",
-				"stylers": [{
-					"visibility": "on",
-					"color": "#fff"
-				}]
-			}, {
-			}, {
-				"featureType": "poi.business",
-				"elementType": "labels",
-				"stylers": [{
-					"visibility": "on",
-					"color": "#f1f1f1"
-				}]
-			}, {
-				"featureType": "road",
-				"elementType": "geometry",
-				"stylers": [{
-					"lightness": 100,
-					"color": "#fff"
-				}, {
-					"visibility": "simplified"
-				}]
-			}]
-		};
-		// We are using a div with id="map" seen below in the <body>
-		var mapElement = document.getElementById('reservemap');
+  /* Start Swiper Options */
 
-		// Create the Google Map using our element and options defined above
-		var map = new google.maps.Map(mapElement, mapOptions);
+  //initialize swiper [Hero Section]
+  if ($(".hero-swiper-slider .swiper-container").length) {
+    var heroSlider = new Swiper(".hero-swiper-slider .swiper-container", {
+      speed: 500,
+      spaceBetween: 30,
+      loop: true,
+      reverseDirection: true,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
 
+      autoplay: {
+        delay: 8000,
+        disableOnInteraction: true,
+      },
 
-	}
-	if ($('#reservemap').length != 0) {
-		google.maps.event.addDomListener(window, 'load', basicmap);
-	}
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  }
 
-	// map active
-	function contactcmap() {
-		// Basic options for a simple Google Map
-		// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-		var mapOptions = {
-			// How zoomed in you want the map to start at (always required)
-			zoom: 15,
-			scrollwheel: false,
-			center: new google.maps.LatLng(40.74393298737726, -73.967833),
-			styles: [{
-				"stylers": [{
-					"color": "#CDCDCD"
-				}]
-			}, {
-				"featureType": "water",
-				"elementType": "labels",
-				"stylers": [{
-					"visibility": "on",
-					"color": "#000000"
-				}]
-			}, {
-			}, {
-				"featureType": "poi.business",
-				"elementType": "labels",
-				"stylers": [{
-					"visibility": "on",
-					"color": "#000000"
-				}]
-			}, {
-				"featureType": "road",
-				"elementType": "geometry",
-				"stylers": [{
-					"lightness": 100,
-					"color": "#000000"
-				}, {
-					"visibility": "simplified"
-				}]
-			}]
-		};
-		// We are using a div with id="map" seen below in the <body>
-		var mapElement = document.getElementById('contactmap');
+  // initialize swiper [Testimonials with THREE Column]
+  if ($(".testimonials-3-col .swiper-container").length) {
+    var testimonialsSlider_3 = new Swiper(
+      ".testimonials-3-col .swiper-container",
+      {
+        // Optional parameters
+        speed: 600,
+        loop: true,
+        grabCursor: true,
+        slidesPerView: 3,
+        spaceBetween: 10,
+        delay: 5000,
+        autoplay: {
+          delay: 5000,
+        },
+        breakpoints: {
+          991: {
+            slidesPerView: 1,
+          },
+        },
 
-		// Create the Google Map using our element and options defined above
-		var map = new google.maps.Map(mapElement, mapOptions);
+        navigation: {
+          nextEl: ".testimonials-3-col .swiper-button-next",
+          prevEl: ".testimonials-3-col .swiper-button-prev",
+        },
+      }
+    );
+  }
 
+  //initialize swiper [clients Section]
+  if ($(".our-clients .swiper-container").length) {
+    var partenersSlider = new Swiper(".our-clients .swiper-container", {
+      // Optional parameters
+      speed: 600,
+      loop: true,
+      spaceBetween: 30,
+      grabCursor: true,
 
-	}
-	if ($('#contactmap').length != 0) {
-		google.maps.event.addDomListener(window, 'load', contactcmap);
-	}
+      delay: 5000,
+      autoplay: {
+        delay: 5000,
+      },
+      slidesPerView: 6,
+      breakpoints: {
+        991: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+      },
+    });
+  }
 
-})(jQuery);
+  /* Start fancybox Options */
+  // portfolio fancy box initializer
+
+  if ($("*").fancybox) {
+    $().fancybox({
+      selector: '[data-fancybox=".filter"]:visible',
+      loop: true,
+      buttons: ["zoom", "close"],
+    });
+  }
+
+  /* Start bootstrap Scrollspy Options  */
+  /*-------------------------------------*/
+  //on one page demos only
+  if (navMain) {
+    $(bdyOnePage).scrollspy({
+      target: navMain,
+      offset: navMain.innerHeight() + 1,
+    });
+  }
+
+  /* Start isotope Options */
+  /*-------------------------------------*/
+  $(".portfolio .portfolio-btn").on("click", function () {
+    $(this).addClass("active").siblings().removeClass("active");
+
+    var $filterValue = $(this).attr("data-filter");
+    portfolioGroup.isotope({
+      filter: $filterValue,
+    });
+  });
+
+  var wow = new WOW({
+    animateClass: "animated",
+  });
+  wow.init();
+  /*----------------- End Vendors plugins options ----------------- */
+
+  /*************Start Form Functionality************/
+  var contactForm = $("#contact-us-form"),
+    iputWraper = $("form.main-form .input-wraper"),
+    textInput = $("form.main-form .text-input"),
+    userName = $("#user-name"),
+    userEmail = $("#user-email"),
+    msgSubject = $("#msg-subject"),
+    msgText = $("#msg-text"),
+    submitBtn = $("#submit-btn"),
+    errorMsg = $(".error-msg"),
+    isValidInput = false,
+    isValidEmail = false;
+
+  function ValidateNotEmptyInput(input, errMsg) {
+    if (input.val().trim() === "") {
+      $(input).siblings(".error-msg").text(errMsg).css("display", "block");
+      isValidInput = false;
+    } else {
+      $(input).siblings(".error-msg").text("").css("display", "none");
+      isValidInput = true;
+    }
+  }
+
+  function validateEmailInput(emailInput) {
+    var pattern =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (pattern.test(emailInput.val()) === false) {
+      $(emailInput)
+        .siblings(".error-msg")
+        .text("Please Enter a valid Email")
+        .css("display", "block");
+      isValidEmail = false;
+    } else {
+      $(emailInput).siblings(".error-msg").text("").css("display", "none");
+      isValidEmail = true;
+    }
+
+    // return pattern.test(emailInput);
+  }
+
+  submitBtn.on("click", function (e) {
+    e.preventDefault();
+
+    ValidateNotEmptyInput(userName, "Please Enter Your Name");
+    ValidateNotEmptyInput(userEmail, "Please Enter Your Email");
+    ValidateNotEmptyInput(msgSubject, "Please Enter Your subject");
+    ValidateNotEmptyInput(msgText, "Please Enter Your Message");
+    validateEmailInput(userEmail);
+
+    if (isValidInput && isValidEmail) {
+      $.ajax({
+        type: "POST",
+        url: contactForm.attr("action"),
+        data: contactForm.serialize(),
+
+        success: function (data) {
+          $(".done-msg")
+            .text("Thank you, Your Message Was Received!")
+            .toggleClass("show");
+          setTimeout(function () {
+            $(".done-msg").text("").toggleClass("show");
+          }, 4000);
+          contactForm[0].reset();
+        },
+      });
+      return false;
+    }
+  });
+
+  if (textInput.length) {
+    if (textInput.val().trim() !== "")
+      textInput.parent().addClass(inputHasText);
+    else textInput.parent().removeClass(inputHasText);
+
+    //check if the form input has data or not while focusing out
+    //from the input to set the label
+    //in the right place by the css rules.
+    textInput.on("focusout", function () {
+      if ($(this).val().trim() !== "") $(this).parent().addClass(inputHasText);
+      else $(this).parent().removeClass(inputHasText);
+    });
+  }
+
+  /*************End Form Functionality************/
+});
+
+/*----------------- Start page loading Actions -----------------  */
+
+// $(window).on("load", function () {
+//Fire the isotope plugin
+if (jQuery().isotope) {
+  portfolioGroup.isotope({
+    // options
+    itemSelector: ".portfolio-item",
+    layoutMode: "fitRows",
+    percentPosition: true,
+    filter: "*",
+    stagger: 30,
+    containerStyle: null,
+  });
+}
+
+//loading screen
+$("#loading-screen").fadeOut(500);
+$("#loading-screen").remove();
+
+// check if the loaded page have [dat-splitting] attr so the let the page fire splitting.js plugin  ;
+if (!(typeof window.Splitting === "undefined")) {
+  if ($("[data-splitting]").length) {
+    Splitting();
+  }
+}
+
+// });
+
+/*----------------- End Loading Event functions -----------------*/
